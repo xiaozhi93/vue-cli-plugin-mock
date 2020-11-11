@@ -1,0 +1,23 @@
+{
+  "name": "@wofe/vue-cli-plugin-mock",
+  "version": "1.0.0",
+  "description": "a mock plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/wofe51/vue-cli-plugin-mock.git"
+  },
+  "keywords": [],
+  "author": "windfly",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
+    "chokidar": "^3.4.3",
+    "minimist": "^1.2.5",
+    "require-context-async": "^1.2.0"
+  }
+}
