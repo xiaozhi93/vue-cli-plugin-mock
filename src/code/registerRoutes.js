@@ -14,6 +14,7 @@ function registerRoutes(app) {
   }, [])
   for (const mock of mocks) {
     const newMock = formatRoute(mock)
+    console.log(newMock)
     app[newMock.type](newMock.url, newMock.response)
   }
   mockStartIndex = app._router.stack.length - mockRoutesLength
@@ -27,18 +28,18 @@ function unregisterRoutes() {
   })
 }
 
-function formatRoute (url, type, respond) {
+function formatRoute({ url = '/', type = 'get', response = {} }) {
   return {
     url: url,
     type: type || 'get',
     response(req, res) {
       console.log('request invoke:' + req.path)
-      res.json(respond instanceof Function ? respond(req, res) : respond)
+      res.json(response instanceof Function ? response(req, res) : response)
     }
   }
 }
 
-function reloadRoutes() {
+function reloadRoutes(app) {
   app._router.stack.splice(mockStartIndex, mockRoutesLength)
   unregisterRoutes()
   registerRoutes(app)

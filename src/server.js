@@ -25,10 +25,6 @@ const server = (app) => {
   app.use(bodyParser.urlencoded({
     extended: true
   }))
-  app.use((req, res, next) => {
-    console.log(chalk.green(req.url))
-    next()
-  })
   // 注册路由
   registerRoutes(app)
   // 启动监听
